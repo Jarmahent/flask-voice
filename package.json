@@ -1,0 +1,21 @@
+{
+  "name": "flask-voice",
+  "version": "1.0.0",
+  "description": "An app to convert article from their text form to their audio for using google text to speech api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:server": "python app/app.py",
+    "dev:client": "cd app/templates/index && npm run serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jarmahent/flask-voice.git"
+  },
+  "author": "Kevin Hernandez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Jarmahent/flask-voice/issues"
+  },
+  "homepage": "https://github.com/Jarmahent/flask-voice#readme"
+}

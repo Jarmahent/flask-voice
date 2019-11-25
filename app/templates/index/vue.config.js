@@ -1,5 +1,7 @@
 module.exports = {
   outputDir: "./index",
   runtimeCompiler: true,
-  publicPath: '/index/index/'
+  publicPath: process.env.NODE_ENV === 'production'
+  ? '/index/index'
+  : '/'
 };
