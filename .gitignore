@@ -1,4 +1,4 @@
 venv/
 app/templates/index/node_modules/
 app/templates/index/index
-
+node_modules/
