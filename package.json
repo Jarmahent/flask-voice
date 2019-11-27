@@ -19,6 +19,6 @@
   },
   "homepage": "https://github.com/Jarmahent/flask-voice#readme",
   "dependencies": {
-    "article-2-voice": "^0.1.1"
+    "article-2-voice": "^0.1.9"
   }
 }
