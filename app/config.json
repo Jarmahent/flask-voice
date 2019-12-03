@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "ttsapi-259817",
+  "private_key_id": "54a1b78286f52eccbb4483377cc272b4c2dc28aa",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDY9X4ochnqHFza\nSLfUT9YycO3yknlraymEgiDDqw3zXZ1C2XsWbWIb/U7zG257Hv4qqKYQPpGjsnoB\nvvqhmGW/lS5GCNChFJQwzOR6oF+spPv1H8Zs7iaKSNGlex9KvjlQZhaEclGmG+zD\nZNrznhzJ3n6e0+48+qKzbmpAzSJgV6YH7ZOjk0r9U7Cop+lNBNh2NVuHjPq8BFx4\nm21SzyUDO1S4Z1NLXhTqZ/y1Ghjp/UmH6T2MxaIMZdmCipCfzqRI4KOJa9No5Qo3\ndLEB5hJYzg97eQefpv/GzefDkXyqrokYWdNgPGF9TP4yCs82rUukkiXNDnrQE+ba\nJwKDNh8nAgMBAAECggEANj7bNj2hIRnKVYGNBPaZNa9qrxXUafk3PjxS+NlR+aFU\napx53BepShpBnSMksoADSKM2MiWSwH0laD5Z6AF0nzwrf7NAhqXgj3sLPWXPxhjS\nLm2tbRr2Y+jlEh0Aq+134xRDWQZER+X/grM602KbDBYnTorqrDB2caqPwngHulJ5\n+98Vm07sHJw9iZOIjlBZQH55O4QRQGKGYHZ7j2M0XCr2MvR2d+aXGGA68rAPu4oO\ncAzX7pXSX4XKcFUTD2fTJsEVIFfvKVx8rR/NFIEUzxp3Pfka8b7d8GMT0YGyLneY\nOlDmbe4QUV0yNxmZpR+luDQdxanwUzJycNXff3TWMQKBgQDxjspnfyTKEUNL/e1L\nrkpxEDbOXj/kajHXHRKTs8hmG6piy0zRsSjjx/F2bSYAbNJyuBC7Kn1DX62lH/zg\n2aVgBi4Lw4xNAtAnLkSiZCsdJEpOZhEQ4lShDQPo8klPGxns4J764N3CCz2do/P2\nUpvkiY7qxbUyBox5wcCSScqTgwKBgQDl7jM9uk+0NFS58Mwkix9l+qsA3bo/1rdD\nKab4lpPzgG7hhfMVJCSlqvT1CNIH30id+TIXp+ct4N3rXFfT4xzSa/BeUfbnpdxM\np3Ezw1kjAlg5D+a/G6gtTlFJxJqEPDgcVBVyrzsnkBhh9NxfvPV0my/huwTTeKbd\nj8F0C/ugjQKBgQDDPPAnWsJ3eCB2iVSEeOi+HabOgasOiS6jeWIMc6EjtnSuyTbb\nvV8ZS//EAlBWw54NDuym+p6oF+sXrZUMf52E0TniVDlP/VgUcvcScffO5AgS+bgN\nd4GDciuY2kuaXoNDzAFzMNDMB53TjjKfAwHxY6VZ6FadimF7/7gQBQhw1QKBgQC4\nNmEDQXN98rc2yX8kf/nF4FCEvx/q6YGl44cMfsdGPU2YjZK1C2H5AMCEWG69M9yg\nA/hoD3MdxJzHZhJPhhOfWi8Xwh9IdA/NshD14bpWXBiGjwDVd7kDo01pBoStEPn7\naDpOyalhBwch4+VzJpaYt4RjG0zAiFdYB0Z8TOVqOQKBgF/R2ru7YptUEvOeImuN\nvlYJahAt52mNveOdQ20sMAXfeAyb5KGvhQXXDhygn2HeXePZHA24GvDS7Ua4jf/s\ncjXLwnz5LxKPdkBg/DQRTgfZ+vef5yZgXZd2Ck2QD6l0GS62NsDxhnmWGcRb+7Ax\n9cleVkPll66dIeL1QTIfPMRR\n-----END PRIVATE KEY-----\n",
+  "client_email": "kevin-hernandez@ttsapi-259817.iam.gserviceaccount.com",
+  "client_id": "112820125764171764387",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/kevin-hernandez%40ttsapi-259817.iam.gserviceaccount.com"
+}
