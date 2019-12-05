@@ -157,12 +157,8 @@
           <!-- col.// -->
           <div class="col-9">
             <h2 v-if="noRecentArticles">No Recent Articles</h2>
-            <div v-for="article in recentArticles" v-bind:key="article.id">
-              <ArticleSnippet
-                  :articleTitle="article.article_title"
-                  :articleBody="article.article_body"
-                  :articleId="article.id"
-                  :articleThumbnail="article.article_image"/>
+            <div v-for="article in recentArticles" v-bind:key="article">
+              <ArticleSnippet :articlePath="article"/>
             </div>
           </div>
         </div>
@@ -206,13 +202,6 @@ export default {
     };
   },
   created(){
-    request
-    .get('/csrfToken')
-    .send()
-    .then(res =>{
-      var body = res.body;
-      this.csrf = body._csrf;
-    })
     this.getRecentArticles();
   },
   methods: {
@@ -254,13 +243,10 @@ export default {
     },
     getRecentArticles(){
       request
-      .get('/api/recent')
+      .get('http://127.0.0.1:8000/api/articles')
+      .set('Access-Control-Allow-Origin', "*")
       .then(res => {
-        var articles = res.body;
-        if(articles <= 0){
-          return this.noRecentArticles = true;
-        }
-        this.recentArticles = articles;
+        this.recentArticles = res.body.articles
       })
     },
     validate(text) {

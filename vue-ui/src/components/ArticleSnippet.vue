@@ -28,7 +28,7 @@ import request from 'superagent'
 
 export default {
   name: "ArticleSnippet",
-  props: ["articleTitle", "articleBody", "articleId", "articleThumbnail"],
+  props: ["articlePath"],
   created(){
     var re = /(.{0,300})(\s+|$)/g;
     var unJoined = re.exec(this.articleBody.replace(/(\r\n|\n|\r)/gm, ''));
@@ -36,6 +36,10 @@ export default {
   },
   data(){
     return {
+      articleTitle: null,
+      articleBody: null,
+      articleId: null,
+      articleThumbnail: null,
       cutBody: null,
       loadingArticleMedia: false,
       articlePreview: true,
@@ -46,7 +50,20 @@ export default {
       articleUrl: null
     }
   },
+  created(){
+    this.getArticle()
+  },
   methods: {
+    getArticle(){
+      request
+      .get("http://127.0.0.1:8000" + this.articlePath + "/meta.json")
+      .set('Access-Control-Allow-Origin', "*")
+      .then((response) =>{
+        console.log(response.body)
+        this.articleTitle = response.body.title
+        this.articleBody = response.body.body
+      })
+    },
     playArticle(e){
       e.preventDefault()
       if(this.articleLoaded){
