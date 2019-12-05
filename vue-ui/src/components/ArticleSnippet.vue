@@ -61,7 +61,8 @@ export default {
       .then((response) =>{
         console.log(response.body)
         this.articleTitle = response.body.title
-        this.articleBody = response.body.body
+        this.articleBody = response.body.description
+        this.articleThumbnail = response.body.image
       })
     },
     playArticle(e){
