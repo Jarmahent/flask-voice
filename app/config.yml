@@ -1,6 +1,6 @@
 config:
   credentials_location: "app/config.json" # Folder max amount
   project_id: "ttsapi-259817"
-  article_folder: "/Users/kevinhernandez/Documents/flask-voice/app/templates/index/index/articles"
+  article_folder: "/Users/kevinhernandez/Documents/flask-voice/app/templates/articles/"
 
   

@@ -1,10 +1,11 @@
 venv/
-app/templates/index/node_modules/
-app/templates/index/index
-node_modules/
+app/templates/index/
+
+*articles/
+*node_modules/
 config.json
 .vscode/
 
 *.pyc
 *.pyo
-__pycache__/
+*__pycache__/

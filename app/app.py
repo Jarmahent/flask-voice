@@ -23,7 +23,7 @@ article_folder = configuration["config"]["article_folder"]
 
 @app.route('/')
 def index():
-  return render_template('index/index/index.html')
+  return render_template('index/index.html')
 
 @app.route('/api/convert', methods=["POST"])
 def convert_article():
@@ -44,8 +44,8 @@ def convert_article():
 
   return jsonify({"response": str(res)})
 
-
-
-
+@app.route('/api/articles', methods=["GET"])
+def articles():
+  pass
 if __name__ == "__main__":
   app.run(port="8000")
