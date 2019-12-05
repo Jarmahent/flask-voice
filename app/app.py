@@ -8,19 +8,24 @@ from k_util.utilities import Utilities
 import datetime
 import json
 
-app = Flask(__name__, static_folder="templates/index")
-cors = CORS(app, resources={"*": {"origins": "*"}})
 f = open("app/config.yml")
 configuration = yaml.full_load(f)
-converter = Converter()
-util = Utilities()
 
 # Fetch Config yaml file parameters
 # ------
 config_location = configuration["config"]["credentials_location"]
 project_id = configuration["config"]["project_id"]
 article_folder = configuration["config"]["article_folder"]
+static = configuration["config"]["static_directory"]
 # ------
+
+app = Flask(__name__, static_folder=static)
+cors = CORS(app, resources={"*": {"origins": "*"}})
+
+converter = Converter()
+util = Utilities()
+
+
 
 
 
@@ -52,8 +57,11 @@ def convert_article():
 @app.route('/api/articles', methods=["GET"])
 def articles():
   try:
+    static_path = "/index/articles/"
     folders = sorted([os.path.join(article_folder,d) for d in os.listdir(article_folder)], key=os.path.getmtime)
-    return jsonify({"error": "false", "articles": folders})
+    remove_path = [folder.split("/")[-1] for folder in folders[::-1]]
+    static_folders = [static_path + folder for folder in remove_path]
+    return jsonify({"error": "false", "articles": static_folders})
   except Exception as e:
     return jsonify({"error": "true", "message": str(e)})
 
