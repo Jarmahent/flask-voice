@@ -7,7 +7,7 @@ from k_util.utilities import Utilities
 import datetime
 import json
 
-app = Flask(__name__, static_folder="templates/index/index")
+app = Flask(__name__, static_folder="templates/index")
 f = open("app/config.yml")
 configuration = yaml.full_load(f)
 converter = Converter()
@@ -15,9 +15,9 @@ util = Utilities()
 
 # Fetch Config yaml file parameters
 # ------
-config_location = params["config"]["credentials_location"]
-project_id = params["config"]["project_id"]
-article_folder = params["config"]["article_folder"]
+config_location = configuration["config"]["credentials_location"]
+project_id = configuration["config"]["project_id"]
+article_folder = configuration["config"]["article_folder"]
 # ------
 
 
@@ -30,7 +30,7 @@ def convert_article():
   incoming = request.get_json()
   url = incoming["url"]
   now = datetime.datetime.now().strftime("%d-%Y_%H-%M%S")
-  random_id = util.randomString(stringLength=15)
+  random_id = util.randomString()
   article_path = os.path.join(article_folder, random_id)
 
   if not os.path.exists(article_path):
