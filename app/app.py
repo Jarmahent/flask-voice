@@ -1,6 +1,7 @@
 from flask import Flask,request,render_template,jsonify
 import os
 import yaml
+from flask_cors import CORS
 import urllib.parse
 from converter.convert import Converter
 from k_util.utilities import Utilities
@@ -8,6 +9,7 @@ import datetime
 import json
 
 app = Flask(__name__, static_folder="templates/index")
+cors = CORS(app, resources={"*": {"origins": "*"}})
 f = open("app/config.yml")
 configuration = yaml.full_load(f)
 converter = Converter()
@@ -21,6 +23,9 @@ article_folder = configuration["config"]["article_folder"]
 # ------
 
 
+
+# ROUTES
+# ----------------
 @app.route('/')
 def index():
   return render_template('index/index.html')
@@ -46,6 +51,12 @@ def convert_article():
 
 @app.route('/api/articles', methods=["GET"])
 def articles():
-  pass
+  try:
+    folders = sorted([os.path.join(article_folder,d) for d in os.listdir(article_folder)], key=os.path.getmtime)
+    return jsonify({"error": "false", "articles": folders})
+  except Exception as e:
+    return jsonify({"error": "true", "message": str(e)})
+
+
 if __name__ == "__main__":
   app.run(port="8000")
