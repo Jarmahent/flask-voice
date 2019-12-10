@@ -189,14 +189,11 @@ export default {
       article_text: "",
       requestSuccess: false,
       loading: false,
-      ready: false,
-      href: "",
       invalidUrl: false,
       media_source: null,
       recentArticles: null,
       noRecentArticles: false,
       article_title: '',
-      csrf: null,
       showReportBugModal: false
     };
   },
