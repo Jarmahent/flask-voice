@@ -215,10 +215,9 @@ export default {
       } else {
         this.loading = true;
         request
-          .post("/api/convert")
+          .post("http://127.0.0.1:8000" + "/api/convert")
           .send({
-            url: this.url,
-            _csrf: this.csrf
+            url: this.url
           })
           .then(res => {
             this.invalidUrl = false;

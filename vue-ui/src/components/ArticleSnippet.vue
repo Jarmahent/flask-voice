@@ -75,17 +75,12 @@ export default {
           this.media_paused = true;
           this.audio.pause();
         }
-      }else{
-        this.loadingArticleMedia = true;
-        request
-        .get(`/api/fetch?id=${this.articleId}`)
-        .then((response) =>{
-          this.loadingArticleMedia = false;
-          this.articleLoaded = true;
-          this.audio = new Audio(response.body.media);
-          this.media_paused = false;
-          this.audio.play();
-        });
+      }else{          
+        this.loadingArticleMedia = false;
+        this.audio = new Audio("http://127.0.0.1:8000" + this.articlePath + "/article.mp3");
+        this.articleLoaded = true;
+        this.media_paused = false;
+        this.audio.play();
       }
 
     },

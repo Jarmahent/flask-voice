@@ -52,7 +52,7 @@ def convert_article():
     out_dir=os.path.join(article_path)
   )
 
-  return jsonify({"response": str(res)})
+  return jsonify({"response": str(article_path)})
 
 @app.route('/api/articles', methods=["GET"])
 def articles():
