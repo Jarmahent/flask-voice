@@ -59,7 +59,6 @@ export default {
       .get("http://127.0.0.1:8000" + this.articlePath + "/meta.json")
       .set('Access-Control-Allow-Origin', "*")
       .then((response) =>{
-        console.log(response.body)
         this.articleTitle = response.body.title
         this.articleBody = response.body.description
         this.articleThumbnail = response.body.image

@@ -39,7 +39,6 @@
                   @click="convertArticle"
                   v-if="!loading"
                 >Convert!</b-button>
-                <a :href="href" download v-if="requestSuccess">Download Zip file</a>
                 <h4 style="color: red;" v-if="invalidUrl">The url needs to be valid or https</h4>
               </b-form>
               <b-spinner v-if="loading" class="m-3"></b-spinner>
@@ -220,23 +219,26 @@ export default {
             url: this.url
           })
           .then(res => {
-            this.invalidUrl = false;
-            this.requestSuccess = true;
-            this.loading = false;
+            this.article_folder = res.body.article_folder
+            request
+            .get("http://127.0.0.1:8000" + res.body.article_folder + "/meta.json")
+            .then( res =>{
+              this.invalidUrl = false;
+              this.requestSuccess = true;
+              this.media_source = "http://127.0.0.1:8000" + this.article_folder + "/article.mp3"
+              this.article_text = res.body.content;
+              this.article_title = res.body.title
+              this.loading = false;
+              // const downloadLink = document.createElement("a");
+              // const fileName = "voice.zip";
 
-            res = JSON.parse(res.text);
-            this.media_source = res.article_audio;
-            this.article_text = res.article_body;
-            this.article_title = res.article_title
-            this.href = res.data;
-            // const downloadLink = document.createElement("a");
-            // const fileName = "voice.zip";
+              // downloadLink.href = res.data;
+              // downloadLink.download = fileName;
+              // downloadLink.setAttribute("type", "hidden"); // make it hidden if needed
+              // document.body.appendChild(downloadLink);
+              // downloadLink.click();
+            })
 
-            // downloadLink.href = res.data;
-            // downloadLink.download = fileName;
-            // downloadLink.setAttribute("type", "hidden"); // make it hidden if needed
-            // document.body.appendChild(downloadLink);
-            // downloadLink.click();
           });
       }
     },
@@ -245,6 +247,10 @@ export default {
       .get('http://127.0.0.1:8000/api/articles')
       .set('Access-Control-Allow-Origin', "*")
       .then(res => {
+        if(res.body.articles.length === 0){
+          this.noRecentArticles = true;
+          return false
+        }
         this.recentArticles = res.body.articles
       })
     },
